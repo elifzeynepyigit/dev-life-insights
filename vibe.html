@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-Life Insights</title>
+    <style>
+        /* CSS BURAYA GELDİ */
+        body { margin: 0; padding: 0; font-family: sans-serif; background: radial-gradient(circle at top right, #1a1a2e, #16213e, #0f3460); height: 100vh; display: flex; justify-content: center; align-items: center; color: #e9ecef; }
+        .container { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 24px; text-align: center; max-width: 450px; width: 90%; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); }
+        h1 { background: linear-gradient(to right, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+        .buttons { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        button { padding: 12px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; cursor: pointer; transition: 0.3s; font-weight: bold; border: 1px solid rgba(255, 255, 255, 0.1); }
+        button:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); border-color: #00d2ff; }
+        #result { margin-top: 25px; padding: 15px; border-radius: 12px; background: rgba(0, 0, 0, 0.3); border-left: 4px solid #00d2ff; text-align: left; }
+        .result-item { margin: 10px 0; font-size: 0.9rem; }
+        strong { color: #00d2ff; font-size: 0.7rem; text-transform: uppercase; display: block; margin-bottom: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dev-Life Insights 🛠️</h1>
+    <p>Şu an hangi sistem fazındasın?</p>
+    <div class="buttons">
+        <button onclick="checkVibe('debugging')">🔍 Debugging Mode</button>
+        <button onclick="checkVibe('brainstorming')">💡 Brainstorming</button>
+        <button onclick="checkVibe('burnout')">🪫 Burnout / Low Battery</button>
+    </div>
+    
+    <div id="result" style="display: none;">
+        <h2 id="mood-title" style="color: #00ffcc; font-size: 1.2rem; margin-top: 0;"></h2>
+        <div class="result-item"><strong>🔮 Öngörü</strong> <span id="insight"></span></div>
+        <div class="result-item"><strong>🛠️ Aksiyon</strong> <span id="action"></span></div>
+        <div class="result-item"><strong>🥣 Enerji Kaynağı</strong> <span id="fuel"></span></div>
+    </div>
+</div>
+
+<script>
+    const data = {
+        debugging: { title: "Hata Ayıklama Modu 🔍", insight: "Merkür'ün analitik gücü seninle, hataları hemen bulacaksın.", action: "Kodu parçalara böl ve her adımı konsola yazdır.", fuel: "Zihnini berraklaştıracak şekersiz bir kahve." },
+        brainstorming: { title: "Yaratıcı Faz ✨", insight: "Vizyonun geniş, büyük resmi görebiliyorsun.", action: "Hemen kod yazma! Önce akış diyagramını çiz.", fuel: "Yaratıcılığını tetikleyecek taze bir çay." },
+        burnout: { title: "Düşük Batarya 🪫", insight: "Sistem aşırı ısındı. Dur ve nefes al.", action: "Bilgisayarı kapat ve biraz uyu.", fuel: "Sistemi resetlemek için tam kıvamında bir Güllaç!" }
+    };
+
+    function checkVibe(mood) {
+        document.getElementById('result').style.display = 'block'; 
+        document.getElementById('mood-title').innerText = data[mood].title;
+        document.getElementById('insight').innerText = data[mood].insight;
+        document.getElementById('action').innerText = data[mood].action;
+        document.getElementById('fuel').innerText = data[mood].fuel;
+    }
+</script>
+
+</body>
+</html>
